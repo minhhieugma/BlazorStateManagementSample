@@ -1,6 +1,6 @@
-using BlazorSSRFluxor.Data;
+using BlazorSSR.Data;
 
-namespace BlazorSSRFluxor.Store;
+namespace BlazorSSR.Store;
 
 public class FetchDataResultAction
 {

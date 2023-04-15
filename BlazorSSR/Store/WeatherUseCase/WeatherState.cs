@@ -1,7 +1,7 @@
-using BlazorSSRFluxor.Data;
+using BlazorSSR.Data;
 using Fluxor;
 
-namespace BlazorSSRFluxor.Store.WeatherUseCase;
+namespace BlazorSSR.Store.WeatherUseCase;
 
 [FeatureState]
 public class WeatherState

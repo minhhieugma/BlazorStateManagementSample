@@ -1,12 +1,9 @@
 ﻿@page "/counter"
 @inject IState<CounterState> CounterState
-@inject IDispatcher Dispatcher
 
-@inject IActionSubscriber ActionSubscriber
-@using BlazorSSRFluxor.Store
+@using BlazorSSR.Store
 @using Fluxor
-@using Fluxor.Persist.Middleware
-@implements IAsyncDisposable
+@inherits BaseComponent
 
 <PageTitle>Counter</PageTitle>
 
@@ -20,16 +17,10 @@
 
     protected override async Task OnInitializedAsync()
     {
-        CounterState.StateChanged += CounterStateOnStateChanged;
         await base.OnInitializedAsync();
 
-        ActionSubscriber.SubscribeToAction<InitializePersistMiddlewareResultSuccessAction>(this, async result =>
-        {
-            Console.WriteLine($"**** State rehydrated**");
 
-    // we now have state, we can re-render to reflect binding changes
-            await InvokeAsync(() => StateHasChanged());
-        });
+        CounterState.StateChanged += CounterStateOnStateChanged;
     }
 
     protected override Task OnAfterRenderAsync(bool firstRender)
@@ -42,14 +33,6 @@
     private void IncrementCount()
     {
         Dispatcher.Dispatch(new IncrementCounterAction { });
-    }
-
-
-    public ValueTask DisposeAsync()
-    {
-        ActionSubscriber.UnsubscribeFromAllActions(this);
-
-        return ValueTask.CompletedTask;
     }
 
 

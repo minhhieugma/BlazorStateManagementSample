@@ -1,4 +1,4 @@
-namespace BlazorSSRFluxor.Store;
+namespace BlazorSSR.Store;
 
 public class IncrementCounterAction
 {

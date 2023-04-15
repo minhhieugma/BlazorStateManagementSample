@@ -1,7 +1,7 @@
-using BlazorSSRFluxor.Store.WeatherUseCase;
+using BlazorSSR.Store.WeatherUseCase;
 using Fluxor;
 
-namespace BlazorSSRFluxor.Store.CounterUseCase;
+namespace BlazorSSR.Store.CounterUseCase;
 
 public static class Reducers
 {

@@ -1,16 +1,11 @@
 ﻿@page "/fetchdata"
 @inject WeatherForecastService ForecastService
 @inject IState<WeatherState> WeatherState
-@using BlazorSSRFluxor.Data
-@using BlazorSSRFluxor.Store.WeatherUseCase
+@using BlazorSSR.Data
+@using BlazorSSR.Store.WeatherUseCase
 @using Fluxor
-@using Fluxor.Persist.Middleware
-@using BlazorSSRFluxor.Store
-@implements IAsyncDisposable
-
-@inject IActionSubscriber ActionSubscriber
-
-@inject IDispatcher Dispatcher
+@using BlazorSSR.Store
+@inherits BaseComponent
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -59,29 +54,16 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        await base.OnInitializedAsync();
         WeatherState.StateChanged += WeatherStateOnStateChanged;
 
         var fetchDataAction = new FetchDataAction();
         Dispatcher.Dispatch(fetchDataAction);
-
-        ActionSubscriber.SubscribeToAction<InitializePersistMiddlewareResultSuccessAction>(this, async result =>
-        {
-    // we now have state, we can re-render to reflect binding changes
-            await InvokeAsync(() => StateHasChanged());
-        });
     }
 
     private async void WeatherStateOnStateChanged(object? sender, EventArgs e)
     {
         await InvokeAsync(() => StateHasChanged());
-    }
-
-
-    public ValueTask DisposeAsync()
-    {
-        ActionSubscriber.UnsubscribeFromAllActions(this);
-
-        return ValueTask.CompletedTask;
     }
 
 }

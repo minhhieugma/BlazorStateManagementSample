@@ -1,7 +1,7 @@
 using Blazored.LocalStorage;
 using Fluxor.Persist.Storage;
 
-namespace BlazorSSRFluxor.Store;
+namespace BlazorSSR.Store;
 
 public class LocalStateStorage : IStringStateStorage
 {

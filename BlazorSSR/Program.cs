@@ -1,6 +1,6 @@
 using Blazored.LocalStorage;
-using BlazorSSRFluxor.Data;
-using BlazorSSRFluxor.Store;
+using BlazorSSR.Data;
+using BlazorSSR.Store;
 using Fluxor;
 using Fluxor.Persist.Middleware;
 using Fluxor.Persist.Storage;

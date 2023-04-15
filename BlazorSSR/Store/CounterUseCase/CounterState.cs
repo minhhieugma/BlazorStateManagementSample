@@ -1,6 +1,6 @@
 using Fluxor;
 
-namespace BlazorSSRFluxor.Store;
+namespace BlazorSSR.Store;
 
 [FeatureState]
 public class CounterState

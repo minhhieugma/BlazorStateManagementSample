@@ -1,4 +1,4 @@
-namespace BlazorSSRFluxor.Data;
+namespace BlazorSSR.Data;
 
 public class WeatherForecastService
 {

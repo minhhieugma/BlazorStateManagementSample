@@ -1,7 +1,7 @@
-using BlazorSSRFluxor.Data;
+using BlazorSSR.Data;
 using Fluxor;
 
-namespace BlazorSSRFluxor.Store;
+namespace BlazorSSR.Store;
 
 public class Effects
 {
