@@ -1,0 +1,56 @@
+﻿@page "/counter"
+@inject IState<CounterState> CounterState
+@inject IDispatcher Dispatcher
+
+@inject IActionSubscriber ActionSubscriber
+@using BlazorSSRFluxor.Store
+@using Fluxor
+@using Fluxor.Persist.Middleware
+@implements IAsyncDisposable
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @CounterState.Value.ClickCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        CounterState.StateChanged += CounterStateOnStateChanged;
+        await base.OnInitializedAsync();
+
+        ActionSubscriber.SubscribeToAction<InitializePersistMiddlewareResultSuccessAction>(this, async result =>
+        {
+            Console.WriteLine($"**** State rehydrated**");
+
+    // we now have state, we can re-render to reflect binding changes
+            await InvokeAsync(() => StateHasChanged());
+        });
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
+    private void CounterStateOnStateChanged(object? sender, EventArgs e) { }
+
+    private void IncrementCount()
+    {
+        Dispatcher.Dispatch(new IncrementCounterAction { });
+    }
+
+
+    public ValueTask DisposeAsync()
+    {
+        ActionSubscriber.UnsubscribeFromAllActions(this);
+
+        return ValueTask.CompletedTask;
+    }
+
+
+}
