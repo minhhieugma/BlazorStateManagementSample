@@ -1,8 +1,5 @@
 ﻿@page "/counter"
 @inject IState<CounterState> CounterState
-
-@using BlazorSSR.Store
-@using Fluxor
 @inherits BaseComponent
 
 <PageTitle>Counter</PageTitle>
@@ -18,7 +15,6 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-
 
         CounterState.StateChanged += CounterStateOnStateChanged;
     }

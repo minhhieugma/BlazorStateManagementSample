@@ -1,8 +1,4 @@
-﻿@using Fluxor
-@inject IStore Store
-@inject IActionSubscriber ActionSubscriber
-
-<Fluxor.Blazor.Web.StoreInitializer/>
+﻿<Fluxor.Blazor.Web.StoreInitializer/>
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
