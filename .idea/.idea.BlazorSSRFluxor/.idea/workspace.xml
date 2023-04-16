@@ -5,11 +5,27 @@
     <projectFile profileName="https">BlazorSSRFluxor/BlazorSSRFluxor.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="839b474c-582a-4d6e-899a-41494a21b1d1" name="Changes" comment="Create BaseComponent.cs">
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/App.razor" afterDir="false" />
+    <list default="true" id="839b474c-582a-4d6e-899a-41494a21b1d1" name="Changes" comment="Simplify namespaces, and using">
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/CommentCreationModal.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/CommentList.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/CountrySelector.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/Login.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/StateOrchestrator.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/StateViewer.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/AddTrailAction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/BackStageAction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/BackwardTraverseUntilAction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/StageUseCase/StageState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/UpdateTrailAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorSSRFluxor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorSSRFluxor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR.sln" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/BlazorSSR.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/BlazorSSR.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/BaseComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/BaseComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/Counter.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/Counter.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/FetchData.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/FetchData.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/_Imports.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Shared/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Shared/NavMenu.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/CounterUseCase/CounterState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/CounterUseCase/CounterState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/LocalStateStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/LocalStateStorage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/Reducers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/Reducers.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +39,72 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f456ea9cea9246d787a201cc9f86ca735800/28/4e7c82d1/IStringStateStorage.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/076957e17dab919f61b5db9d7dc67a64b42237b139a71ebb4b35b7d76dcae87/ConcurrentDictionary.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0e21df43afa6b7a76e9be3e97eedadd9aa5fefcd787bd039839c7b81a17/FeatureStateWrapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1033d469a77c9df07c1732b038ae9e21e898a02886f28be41d59cddd3c831dd/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/10616addb6e783cc90acec53f9316ccec363cf7a57b27055a964beafd4b32d95/ArgumentNullException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/123b144a91ddbeabdbd741d45bb5f7d1b34406e7a2ecbd479328f44d751dea/ObjectDefaultConverter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1ac920aaa9869c5df7611d9a749dfda0819888fc3fff3b7861a1f3e8b48be6/JSRuntime.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1e32309ce4e795f83827a793dedf8446acb54f271d25c9f1134f35f8e4d48f53/JsonSerializer.Read.Helpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2ff32d9e6a8ae52479379f35545f9a152fde5adb58a20dc4526c1c59bafe3/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/318bb72320ffc6ce18d8778e0fda537d869b392425f1f6ba82b0c9bfc26/StateSelection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/35f26debdb3dbfb621536c7ccacf638366358c8d51b31f2e43d455746e8f6f5e/FeatureStateAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/43a28c7c4e58f097b6cf58f8840633c8fa53f684de3c9ac793ae956ea169e/HtmlRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4eda616fb9a9695c70475277598fa55edb95d2a82a1a1d18151fc9574eb4f485/RendererSynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/50a8499ef1e4d58c654eafbab6b382dcdcdda605f87d9aa37e9e99798465232/JsonConverterOfT.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/53fde159ba8211bfa732c66683f6d3cd7af7b9ff56a3a1dc1dbe1cee597fe/CallSiteRuntimeResolver.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5bf7fca5dcfcf899ef4bfdfa9de4213f7b416541332ea7f5229c72ca5dab853/State.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5fc02e2289ba5a5e3282b65c97f56dab2fbd8e9860a667ad6a53d192d81e955c/CircuitHost.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6fe856e516bf13f24b6d3e6701f4b1221c3ba5aadab6a482455ac230e3ecfd/ComponentState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79f74959529868414a9eb5cef92f67c8cc81e63758874c3c91c8089e1b3870/DefaultHubDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7cc477141a9a15fde3b7c58ecd2739d1a38ca92f945ec7c8b78e90193b11c5/TaskContinuation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/82f3bb64e8c52af0a0175218c6cd371f393f871ffe1482a2ffd51e7efaeddbb5/Task.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e2e3f232b3f74cfc56d24ec307aaea234eb831ec23796f1b454eb7e8fe1/CallSiteVisitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e31511ee64348c4a975dee0e914206161376536e2ec1d6ec749ac789895/JsonConverterOfT.ReadCore.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/97f781e0b41a234fb4a615ccff48c5b2d9c28611cd81496fa261ad4f9113eb/Future.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a274526991cc5b2c296a15ec42ef1817da12f720c02f2dfe8e436f5d59360/HubConnectionHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ab5f413c4ba24952fa42e1054d610522c79d5f5f3f8aced8e2614d6ef558/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b873181a30dc59748a16ed44b5712e660b8f93cd0e9672a0ee9361d8adb08a/JsonSerializerOptions.Caching.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf86de456883c29849f3891a81e8ed6ea9e49e46f95913c3ba8074d7fdc4/Feature.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cb1b34e242b1d2a6c59e7930973ba95fc263213487ef67f8534aef21f135748/StaticComponentRenderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d07a18f5d3711881ce852ca5c3b2bd521758d28b2272ed84243725a2a5f4fd0/DynamicServiceProviderEngine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9e9d2f78459306acedf7c6792e9cc71baff6e2e470b6d8eba2e9952b62639b/ComponentFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dc13c4cae026639a7dbb9022e961317f4f4736ea625844c7677f1d9e98e22/AsyncValueTaskMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ddc89fa95d23d4469651ad40492c86d547ccc4b199a371ceca4f84bc644cdbd/DotNetDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e5e11b55ac87710591b72b5eed53343ac3cad5b669e9ffbec3b27feb2d7e0/FeatureStateInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e773ac71d9a6dedfe260e3222ea694242210df8342cacc2ba7dd7188a7377d/ChannelBasedSemaphore.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e930d5d33475944bdd26af251738d4a147f9530d4fa4e9785d679bedbf643b/TaskCompletionSource_T.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ed6d3cfce28a908e474af54c42b83e78339f233df99419dd2cce16aa8c2d7a0/AsyncValueTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f21a62884e71e71381b11c114cc17774857cbb514511f0ef194080562360a56a/JsonSerializerOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f97ca0c37e191d58eda98320cac195e01ec01541344f2bbb2471f7b8747cce5c/RendererSynchronizationContextDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BlazorSSR/Pages/BaseComponent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/BlazorSSR/Pages/Counter.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/hieu/sources/repos/BlazorStateManagementSample/BlazorSSR/Pages/Counter.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BlazorSSR/Pages/Counter.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BlazorSSR/Pages/Error.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BlazorSSR/Pages/FetchData.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BlazorSSR/Shared/MainLayout.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hieu/sources/repos/BlazorStateManagementSample/BlazorSSR/Shared/NavMenu.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hieu/sources/repos/BlazorStateManagementSample/BlazorSSR/Store/CounterUseCase/CounterState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../fluxor-persist/Fluxor.Persist/Storage/JsonStoreHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../fluxor-persist/Fluxor.Persist/Storage/PrivateConstructorContractResolver.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,11 +120,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.26136363",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "rider.code.cleanup.on.save": "true",
     "rider.code.cleanup.on.save.profile": "Hieu's styling",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -99,7 +177,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681577019672</updated>
-      <workItem from="1681577021266" duration="1211000" />
+      <workItem from="1681577021266" duration="21095000" />
     </task>
     <task id="LOCAL-00001" summary="Using Fluxor and Fluxor.Persist">
       <created>1681577196170</created>
@@ -122,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681577861957</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Simplify namespaces, and using">
+      <created>1681578590749</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681578590749</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +219,49 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Using Fluxor and Fluxor.Persist" />
     <MESSAGE value="Create BaseComponent.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create BaseComponent.cs" />
+    <MESSAGE value="Simplify namespaces, and using" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplify namespaces, and using" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/../fluxor-persist/Fluxor.Persist/Storage/JsonStoreHandler.cs</url>
+          <line>52</line>
+          <properties documentPath="$PROJECT_DIR$/../fluxor-persist/Fluxor.Persist/Storage/JsonStoreHandler.cs" initialLine="53" containingFunctionPresentation="method 'GetState'">
+            <startOffsets>
+              <option value="1964" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1965" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/../fluxor-persist/Fluxor.Persist/Storage/JsonStoreHandler.cs</url>
+          <line>74</line>
+          <properties documentPath="$PROJECT_DIR$/../fluxor-persist/Fluxor.Persist/Storage/JsonStoreHandler.cs" initialLine="74" containingFunctionPresentation="method 'SetState'">
+            <startOffsets>
+              <option value="2762" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2763" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="LaunchSettings">
+        <watch expression="StageState.Value" />
+        <watch expression="new AddTrailAction { Trail = { Type = typeof(Login) } }" language="C#" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

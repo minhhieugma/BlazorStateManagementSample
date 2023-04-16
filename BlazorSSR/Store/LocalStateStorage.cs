@@ -14,7 +14,9 @@ public class LocalStateStorage : IStringStateStorage
 
     public async ValueTask<string> GetStateJsonAsync(string statename)
     {
-        return await LocalStorage.GetItemAsStringAsync(statename);
+        var str = await LocalStorage.GetItemAsStringAsync(statename);
+
+        return str;
     }
 
     public async ValueTask StoreStateJsonAsync(string statename, string json)

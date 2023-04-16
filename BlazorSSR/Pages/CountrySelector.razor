@@ -1,0 +1,28 @@
+﻿@inherits BaseComponent
+
+<h1>Country Selector</h1>
+
+<ul class="list-group">
+    <li class="list-group-item" @onclick="@(() => ItemSelected("US"))">US</li>
+    <li class="list-group-item" @onclick="@(() => ItemSelected("CA"))">Canada</li>
+    <li class="list-group-item" @onclick="@(() => ItemSelected("VN"))">Vietnam</li>
+</ul>
+
+
+<div class="mb-3">
+    <button class="btn btn-primary" @onclick="BackButtonClicked">Back</button>
+</div>
+
+
+@code
+{
+    private void BackButtonClicked()
+    {
+        Dispatcher.Dispatch(new BackStageAction() { });
+    }
+
+    private void ItemSelected(string countryCode)
+    {
+        Dispatcher.Dispatch(new BackStageAction { });
+    }
+}

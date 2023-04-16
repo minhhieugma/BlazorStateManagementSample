@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorSSR", "BlazorSSR\BlazorSSR.csproj", "{C90EE502-01BC-479D-A07C-10678D0E0D97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluxor.Persist", "..\fluxor-persist\Fluxor.Persist\Fluxor.Persist.csproj", "{6CFB9461-E3F0-4F4D-AE7D-FA9E323D4419}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{C90EE502-01BC-479D-A07C-10678D0E0D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C90EE502-01BC-479D-A07C-10678D0E0D97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C90EE502-01BC-479D-A07C-10678D0E0D97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CFB9461-E3F0-4F4D-AE7D-FA9E323D4419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CFB9461-E3F0-4F4D-AE7D-FA9E323D4419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CFB9461-E3F0-4F4D-AE7D-FA9E323D4419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CFB9461-E3F0-4F4D-AE7D-FA9E323D4419}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

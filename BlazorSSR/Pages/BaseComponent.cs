@@ -22,7 +22,7 @@ public abstract class BaseComponent : ComponentBase, IAsyncDisposable
         return Task.CompletedTask;
     }
 
-    public ValueTask DisposeAsync()
+    public virtual ValueTask DisposeAsync()
     {
         ActionSubscriber.UnsubscribeFromAllActions(this);
 

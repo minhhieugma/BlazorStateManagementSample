@@ -1,0 +1,38 @@
+﻿@using BlazorSSR.Store.StageUseCase
+@using System.Text.Json
+@inherits BaseComponent
+
+@inject IState<StageState> StageState
+
+@if (StageState.Value.Trails.Any())
+{
+    foreach (var trail in StageState.Value.Trails.Reverse())
+    {
+        <div class="alert alert-secondary" role="alert">
+            @JsonSerializer.Serialize(trail)
+
+        </div>
+    }
+}
+
+@code{
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        StageState.StateChanged += StageStateOnStateChanged;
+    }
+
+    private void StageStateOnStateChanged(object? sender, EventArgs e)
+    {
+        StateHasChanged();
+    }
+
+    public override async ValueTask DisposeAsync()
+    {
+        await base.DisposeAsync();
+        StageState.StateChanged -= StageStateOnStateChanged;
+    }
+
+}

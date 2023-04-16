@@ -1,0 +1,52 @@
+﻿@inherits BaseComponent
+
+<h1>Login</h1>
+
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control"
+           id="exampleFormControlInput1" placeholder="name@example.com"
+           @bind="EmailAddress"
+           @bind:after="UpdateCurrentStage">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+</div>
+
+
+<div class="mb-3">
+
+    <button type="button" class="btn btn-primary" @onclick="LoginAsync">Submit</button>
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-secondary" @onclick="CloseButtonClicked">Close</button>
+</div>
+
+@code{
+
+    [Parameter]
+    public string EmailAddress { get; set; }
+
+
+    private void UpdateCurrentStage()
+    {
+        Dispatcher.Dispatch(new UpdateTrailAction
+        {
+            Trail =
+            {
+                Type = typeof(Login),
+                ComponentParameters = new Dictionary<string, object> { { nameof(EmailAddress), EmailAddress } }
+            }
+        });
+    }
+
+    private void CloseButtonClicked()
+    {
+        Dispatcher.Dispatch(new BackwardTraverseUntilAction { Type = null });
+    }
+
+    private async Task LoginAsync()
+    {
+        Dispatcher.Dispatch(new AddTrailAction { Trail = { Type = typeof(CommentList) } });
+    }
+
+}
