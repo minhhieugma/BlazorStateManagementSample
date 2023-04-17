@@ -1,4 +1,11 @@
-﻿<Fluxor.Blazor.Web.StoreInitializer/>
+﻿@using Fluxor.Persist.Middleware
+@inject IActionSubscriber ActionSubscriber
+
+@if (IsLoading)
+{
+    <SplashScreen></SplashScreen>
+}
+<Fluxor.Blazor.Web.StoreInitializer/>
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
@@ -14,9 +21,19 @@
 
 @code
 {
+    private bool IsLoading { get; set; } = true;
+
     protected override void OnInitialized()
     {
         base.OnInitialized();
+
+        ActionSubscriber.SubscribeToAction<InitializePersistMiddlewareResultSuccessAction>(this, async result =>
+        {
+            IsLoading = false;
+
+    // we now have state, we can re-render to reflect binding changes
+            await InvokeAsync(StateHasChanged);
+        });
     }
 
     protected override async Task OnInitializedAsync()

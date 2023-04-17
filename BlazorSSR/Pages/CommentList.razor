@@ -1,18 +1,22 @@
 ﻿@inherits BaseComponent
 
-<h1>Comment List</h1>
 
+<MobileLayout
+    LayoutTitle="Comment List"
+    ShowFooter="true"
+    ShowRightButton="false"
+    LeftButtonTitle="Logout">
 
-<div class="mb-3">
-    <button class="btn btn-danger" @onclick="Logout">Logout</button>
     <button class="btn btn-primary" @onclick="OpenCommentCreationModel">Add Comment</button>
-</div>
+</MobileLayout>
 
 @code{
 
-    private void Logout()
+    protected override void OnInitialized()
     {
-        Dispatcher.Dispatch(new ClearStagesAction());
+        base.OnInitialized();
+
+        ActionSubscriber.SubscribeToAction<ButtonClickedAction>(this, action => { Dispatcher.Dispatch(new BackwardTraverseUntilAction(typeof(Login))); });
     }
 
     private void OpenCommentCreationModel()

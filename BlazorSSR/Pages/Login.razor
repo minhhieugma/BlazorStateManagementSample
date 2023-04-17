@@ -2,36 +2,40 @@
 @inherits BaseComponent
 @inject IState<StageState> StageState
 
-<h1>Login</h1>
 
-<div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-    <input type="email" class="form-control"
-           id="exampleFormControlInput1" placeholder="name@example.com"
-           @bind="EmailAddress"
-           @bind:after="UpdateCurrentStage">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-</div>
+<MobileLayout
+    ShowHeader="false"
+    ShowFooter="false"
+    ShowLeftButton="false"
+    ShowRightButton="false">
 
-<div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Country</label>
-    <div class="dropdown">
-        <button class="btn btn-warning dropdown-toggle w-100"
-                type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                @onclick="CountryDropdownClicked">
-            @StageState.Value.CountryCode
-        </button>
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control"
+               id="exampleFormControlInput1" placeholder="name@example.com"
+               @bind="EmailAddress"
+               @bind:after="UpdateCurrentStage">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
-</div>
 
-<div class="mb-3">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Country</label>
+        <div class="dropdown">
+            <button class="btn btn-warning dropdown-toggle w-100"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    @onclick="CountryDropdownClicked">
+                @StageState.Value.CountryCode
+            </button>
+        </div>
+    </div>
 
-    <button type="button" class="btn btn-primary" @onclick="LoginAsync">Submit</button>
-</div>
+    <div class="mb-3">
 
-<div class="mb-3">
-    <button class="btn btn-secondary" @onclick="CloseButtonClicked">Close</button>
-</div>
+        <button type="button" class="btn btn-primary" @onclick="LoginAsync">Submit</button>
+    </div>
+</MobileLayout>
+
 
 @code{
 

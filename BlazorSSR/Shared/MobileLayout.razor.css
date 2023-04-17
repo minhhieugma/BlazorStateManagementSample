@@ -1,0 +1,39 @@
+
+.mobile {
+
+}
+
+.mobile-header {
+    width: 100vw;
+    height: 4em;
+    background: #0c4b9c;
+    color: #fff;
+    padding: 0.5em 1em 1em;
+}
+
+.mobile-body {
+    width: 100vw;
+    /* scroll-behavior: auto; */
+    overflow: auto;
+    padding: 1em;
+}
+
+.mobile-body-header-and-footer {
+    height: calc(100vh - 8em);
+}
+
+.mobile-body-header-or-footer {
+    height: calc(100vh - 4em);
+}
+
+.mobile-body-full-screen {
+    height: calc(100vh);
+}
+
+.mobile-footer {
+    width: 100vw;
+    height: 4em;
+    background: #0c4b9c;
+    color: #fff;
+    padding: 0.5em 1em 1em;
+}

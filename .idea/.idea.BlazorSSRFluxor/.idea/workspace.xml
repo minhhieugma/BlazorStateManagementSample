@@ -5,25 +5,14 @@
     <projectFile profileName="https">BlazorSSRFluxor/BlazorSSRFluxor.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="839b474c-582a-4d6e-899a-41494a21b1d1" name="Changes" comment="Implementing a demo app that has ability to preserve user's states">
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/ClearStagesAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/DictionaryStringObjectJsonConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/SelectCountryAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/wwwroot/boot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/wwwroot/connection.js" afterDir="false" />
+    <list default="true" id="839b474c-582a-4d6e-899a-41494a21b1d1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Shared/MobileLayout.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Shared/MobileLayout.razor.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorSSRFluxor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorSSRFluxor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR.sln" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorSSR/BlazorSSR.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/BlazorSSR.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/CommentList.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/CommentList.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/CountrySelector.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/CountrySelector.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/Login.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/Login.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/StateOrchestrator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/StateOrchestrator.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/StateViewer.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/StateViewer.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/_Host.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/BackwardTraverseUntilAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/BackwardTraverseUntilAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/Reducers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/Reducers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/StageUseCase/StageState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/StageUseCase/StageState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Shared/MainLayout.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Shared/MainLayout.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Shared/MainLayout.razor.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +78,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ab5f413c4ba24952fa42e1054d610522c79d5f5f3f8aced8e2614d6ef558/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b873181a30dc59748a16ed44b5712e660b8f93cd0e9672a0ee9361d8adb08a/JsonSerializerOptions.Caching.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf86de456883c29849f3891a81e8ed6ea9e49e46f95913c3ba8074d7fdc4/Feature.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cb1b34e242b1d2a6c59e7930973ba95fc263213487ef67f8534aef21f135748/StaticComponentRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d07a18f5d3711881ce852ca5c3b2bd521758d28b2272ed84243725a2a5f4fd0/DynamicServiceProviderEngine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9e9d2f78459306acedf7c6792e9cc71baff6e2e470b6d8eba2e9952b62639b/ComponentFactory.cs" root0="SKIP_HIGHLIGHTING" />
@@ -105,6 +95,7 @@
     <setting file="file://$PROJECT_DIR$/BlazorSSR/Pages/Counter.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BlazorSSR/Pages/Error.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BlazorSSR/Pages/FetchData.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/hieu/sources/repos/BlazorStateManagementSample/BlazorSSR/Pages/_Host.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BlazorSSR/Shared/MainLayout.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/hieu/sources/repos/BlazorStateManagementSample/BlazorSSR/Shared/NavMenu.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/hieu/sources/repos/BlazorStateManagementSample/BlazorSSR/Store/CounterUseCase/CounterState.cs" root0="SKIP_HIGHLIGHTING" />
@@ -182,7 +173,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681577019672</updated>
-      <workItem from="1681577021266" duration="31368000" />
+      <workItem from="1681577021266" duration="34277000" />
     </task>
     <task id="LOCAL-00001" summary="Using Fluxor and Fluxor.Persist">
       <created>1681577196170</created>
@@ -219,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681667877081</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Enhance connection status detecting">
+      <created>1681689659791</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681689659791</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +231,8 @@
     <MESSAGE value="Create BaseComponent.cs" />
     <MESSAGE value="Simplify namespaces, and using" />
     <MESSAGE value="Implementing a demo app that has ability to preserve user's states" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing a demo app that has ability to preserve user's states" />
+    <MESSAGE value="Enhance connection status detecting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhance connection status detecting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

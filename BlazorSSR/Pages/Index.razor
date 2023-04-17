@@ -1,9 +1,59 @@
 ﻿@page "/"
+@using BlazorSSR.Store.StageUseCase
+@using Fluxor.Persist.Middleware
+@inherits BaseComponent
+@inject IState<StageState> StageState
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Stage @StageState.Value.Trails?.LastOrDefault()</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+@if (StageState.Value.Trails.Length == 0)
+{
+    @* <Login></Login> *@
+}
+else
+{
+    var currentStage = StageState.Value.Trails.Last();
 
-<SurveyPrompt Title="How is Blazor working for you?"/>
+
+    <DynamicComponent Type="currentStage.Type"
+                      Parameters="currentStage.ComponentParameters"/>
+}
+
+
+@code {
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        ActionSubscriber.SubscribeToAction<InitializePersistMiddlewareResultSuccessAction>(this, async result =>
+        {
+            if (StageState.Value.Trails.Length == 0)
+            {
+                Dispatcher.Dispatch(new AddTrailAction
+                {
+                    Trail =
+                    {
+                        Type = typeof(Login)
+                    }
+                });
+            }
+        });
+
+        StageState.StateChanged += StageStateOnStateChanged;
+    }
+
+
+    private void StageStateOnStateChanged(object? sender, EventArgs e)
+    {
+        StateHasChanged();
+    }
+
+    public override async ValueTask DisposeAsync()
+    {
+        await base.DisposeAsync();
+        StageState.StateChanged -= StageStateOnStateChanged;
+    }
+
+}

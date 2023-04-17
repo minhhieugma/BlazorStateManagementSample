@@ -10,18 +10,11 @@
     <ItemGroup>
         <PackageReference Include="Fluxor" Version="5.7.0" />
         <PackageReference Include="Fluxor.Blazor.Web" Version="5.7.0" />
+        <PackageReference Include="Fluxor.Persist" Version="2.4.0" />
         <PackageReference Include="System.Text.Json" Version="7.0.1" />
     </ItemGroup>
 
     <ItemGroup Condition="$(Configuration)=='Debug'">
         <PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="5.7.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Pages\Stages" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\fluxor-persist\Fluxor.Persist\Fluxor.Persist.csproj" />
     </ItemGroup>
 </Project>

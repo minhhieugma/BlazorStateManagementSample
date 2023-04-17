@@ -11,15 +11,20 @@ public abstract class BaseComponent : ComponentBase, IAsyncDisposable
     [Inject] public IDispatcher Dispatcher { get; private set; } = default!;
 
 
-    protected override Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
+        base.OnInitialized();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
         ActionSubscriber.SubscribeToAction<InitializePersistMiddlewareResultSuccessAction>(this, async result =>
         {
             // we now have state, we can re-render to reflect binding changes
             await InvokeAsync(StateHasChanged);
         });
-
-        return Task.CompletedTask;
     }
 
     public virtual ValueTask DisposeAsync()

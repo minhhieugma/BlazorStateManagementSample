@@ -1,23 +1,37 @@
 ﻿@inherits BaseComponent
 
-<h1>Comment Creation Modal</h1>
 
-<div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Email address</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+<MobileLayout
+    LayoutTitle="Add Comment"
+    ShowFooter="false"
+    ShowRightButton="false"
+    LeftButtonTitle="Back">
+
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
                @bind:get="@Comment"
                @bind:set="SetAsync"
                @bind:event="oninput" ></textarea>
-</div>
-<div class="mb-3">
-    <button class="btn btn-secondary" @onclick="Back">Back</button>
-    <button class="btn btn-primary" @onclick="AddComment">Add</button>
-</div>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" @onclick="AddComment">Add</button>
+    </div>
+</MobileLayout>
+
 
 @code
 {
     [Parameter]
     public string Comment { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        ActionSubscriber.SubscribeToAction<ButtonClickedAction>(this, action => { Dispatcher.Dispatch(new BackStageAction()); });
+    }
 
     private Task SetAsync(string value)
     {
@@ -37,11 +51,6 @@
                 ComponentParameters = new Dictionary<string, object> { { nameof(Comment), Comment } }
             }
         });
-    }
-
-    private void Back()
-    {
-        Dispatcher.Dispatch(new BackStageAction { });
     }
 
     private void AddComment()
