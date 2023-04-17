@@ -1,6 +1,6 @@
 using Blazored.LocalStorage;
 using BlazorSSR.Data;
-using BlazorSSR.Store;
+using BlazorSSR.Store.Storage;
 using Fluxor;
 using Fluxor.Persist.Middleware;
 using Fluxor.Persist.Storage;
@@ -37,7 +37,8 @@ builder.Services.AddFluxor(o =>
 });
 
 builder.Services.AddBlazoredLocalStorage();
-builder.Services.AddScoped<IStringStateStorage, LocalStateStorage>();
+// builder.Services.AddScoped<IStringStateStorage, LocalStateStorage>();
+builder.Services.AddScoped<IStringStateStorage, QueryParamsStateStorage>();
 builder.Services.AddScoped<IStoreHandler, JsonStoreHandler>();
 
 var app = builder.Build();

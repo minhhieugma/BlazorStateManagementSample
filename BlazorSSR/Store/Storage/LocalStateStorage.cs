@@ -1,9 +1,9 @@
 using Blazored.LocalStorage;
 using Fluxor.Persist.Storage;
 
-namespace BlazorSSR.Store;
+namespace BlazorSSR.Store.Storage;
 
-public class LocalStateStorage : IStringStateStorage
+public sealed class LocalStateStorage : IStringStateStorage
 {
     private ILocalStorageService LocalStorage { get; set; }
 
