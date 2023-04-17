@@ -5,27 +5,25 @@
     <projectFile profileName="https">BlazorSSRFluxor/BlazorSSRFluxor.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="839b474c-582a-4d6e-899a-41494a21b1d1" name="Changes" comment="Simplify namespaces, and using">
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/CommentCreationModal.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/CommentList.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/CountrySelector.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/Login.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/StateOrchestrator.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Pages/StateViewer.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/AddTrailAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/BackStageAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/BackwardTraverseUntilAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/StageUseCase/StageState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/UpdateTrailAction.cs" afterDir="false" />
+    <list default="true" id="839b474c-582a-4d6e-899a-41494a21b1d1" name="Changes" comment="Implementing a demo app that has ability to preserve user's states">
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/ClearStagesAction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/DictionaryStringObjectJsonConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/Store/SelectCountryAction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/wwwroot/boot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorSSR/wwwroot/connection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorSSRFluxor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorSSRFluxor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR.sln" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorSSR/BlazorSSR.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/BlazorSSR.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/BaseComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/BaseComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/Counter.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/Counter.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Shared/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Shared/NavMenu.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/CounterUseCase/CounterState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/CounterUseCase/CounterState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/LocalStateStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/LocalStateStorage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/CommentList.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/CommentList.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/CountrySelector.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/CountrySelector.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/Login.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/Login.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/StateOrchestrator.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/StateOrchestrator.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/StateViewer.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/StateViewer.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Pages/_Host.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Pages/_Host.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/BackwardTraverseUntilAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/BackwardTraverseUntilAction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/Reducers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/Reducers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/Store/StageUseCase/StageState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/Store/StageUseCase/StageState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorSSR/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorSSR/wwwroot/css/site.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +33,13 @@
   <component name="ChangesViewManager">
     <option name="groupingKeys">
       <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -177,7 +182,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681577019672</updated>
-      <workItem from="1681577021266" duration="21095000" />
+      <workItem from="1681577021266" duration="31368000" />
     </task>
     <task id="LOCAL-00001" summary="Using Fluxor and Fluxor.Persist">
       <created>1681577196170</created>
@@ -207,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681578590749</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implementing a demo app that has ability to preserve user's states">
+      <created>1681667877081</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681667877081</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +232,8 @@
     <MESSAGE value="Using Fluxor and Fluxor.Persist" />
     <MESSAGE value="Create BaseComponent.cs" />
     <MESSAGE value="Simplify namespaces, and using" />
-    <option name="LAST_COMMIT_MESSAGE" value="Simplify namespaces, and using" />
+    <MESSAGE value="Implementing a demo app that has ability to preserve user's states" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing a demo app that has ability to preserve user's states" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

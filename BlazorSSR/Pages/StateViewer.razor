@@ -4,6 +4,9 @@
 
 @inject IState<StageState> StageState
 
+<div class="alert alert-secondary" role="alert">
+    CountryCode: @StageState.Value.CountryCode
+</div>
 @if (StageState.Value.Trails.Any())
 {
     foreach (var trail in StageState.Value.Trails.Reverse())

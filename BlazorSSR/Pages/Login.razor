@@ -1,4 +1,6 @@
-﻿@inherits BaseComponent
+﻿@using BlazorSSR.Store.StageUseCase
+@inherits BaseComponent
+@inject IState<StageState> StageState
 
 <h1>Login</h1>
 
@@ -11,6 +13,16 @@
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 </div>
 
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Country</label>
+    <div class="dropdown">
+        <button class="btn btn-warning dropdown-toggle w-100"
+                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                @onclick="CountryDropdownClicked">
+            @StageState.Value.CountryCode
+        </button>
+    </div>
+</div>
 
 <div class="mb-3">
 
@@ -26,6 +38,20 @@
     [Parameter]
     public string EmailAddress { get; set; }
 
+    private void CountryDropdownClicked()
+    {
+        Dispatcher.Dispatch(new AddTrailAction
+        {
+            Trail =
+            {
+                Type = typeof(CountrySelector),
+                ComponentParameters = new Dictionary<string, object>
+                {
+                    { nameof(CountrySelector.SelectedValue), StageState.Value.CountryCode }
+                }
+            }
+        });
+    }
 
     private void UpdateCurrentStage()
     {
@@ -41,7 +67,7 @@
 
     private void CloseButtonClicked()
     {
-        Dispatcher.Dispatch(new BackwardTraverseUntilAction { Type = null });
+        Dispatcher.Dispatch(new ClearStagesAction());
     }
 
     private async Task LoginAsync()

@@ -12,7 +12,7 @@
 
     private void Logout()
     {
-        Dispatcher.Dispatch(new BackwardTraverseUntilAction { Type = null });
+        Dispatcher.Dispatch(new ClearStagesAction());
     }
 
     private void OpenCommentCreationModel()

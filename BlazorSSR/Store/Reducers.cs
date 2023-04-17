@@ -1,8 +1,9 @@
+using BlazorSSR.Store.CounterUseCase;
 using BlazorSSR.Store.StageUseCase;
 using BlazorSSR.Store.WeatherUseCase;
 using Fluxor;
 
-namespace BlazorSSR.Store.CounterUseCase;
+namespace BlazorSSR.Store;
 
 public static class Reducers
 {
@@ -25,7 +26,12 @@ public static class Reducers
 
     [ReducerMethod]
     public static StageState ReduceAddTrailAction(StageState state, AddTrailAction action) =>
-        new(state.Trails.Concat(new[] { action.Trail }).ToArray());
+        new(state.Trails.Concat(new[] { action.Trail }).ToArray(), state.CountryCode);
+
+
+    [ReducerMethod]
+    public static StageState ReduceClearStagesAction(StageState state, ClearStagesAction action)
+        => StageState.Empty;
 
     [ReducerMethod]
     public static StageState ReduceBackwardTraverseUntilAction(StageState state, BackwardTraverseUntilAction action)
@@ -42,16 +48,22 @@ public static class Reducers
             trails.Remove(current);
         }
 
-        return new StageState(trails.ToArray());
+        return new StageState(trails.ToArray(), state.CountryCode);
     }
 
     [ReducerMethod]
     public static StageState ReduceBackStageAction(StageState state, BackStageAction action) =>
-        new(state.Trails.Any() ? state.Trails[..^1] : Array.Empty<StageState.Trail>());
+        new(state.Trails.Any() ? state.Trails[..^1] : Array.Empty<StageState.Trail>(), state.CountryCode);
 
     [ReducerMethod]
     public static StageState ReduceUpdateTrailAction(StageState state, UpdateTrailAction action)
     {
-        return new StageState(state.Trails[..^1].Concat(new[] { action.Trail }).ToArray());
+        return new StageState(state.Trails[..^1].Concat(new[] { action.Trail }).ToArray(), state.CountryCode);
+    }
+
+    [ReducerMethod]
+    public static StageState ReduceSelectCountryAction(StageState state, SelectCountryAction action)
+    {
+        return new StageState(state.Trails[..^1], action.CountryCode);
     }
 }

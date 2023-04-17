@@ -9,7 +9,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
+builder.Services.AddServerSideBlazor()
+    .AddHubOptions(options =>
+    {
+        // options.ClientTimeoutInterval = TimeSpan.FromSeconds(30);
+        // options.EnableDetailedErrors = false;
+        // options.HandshakeTimeout = TimeSpan.FromSeconds(2);
+        // options.KeepAliveInterval = TimeSpan.FromSeconds(1);
+        // options.MaximumParallelInvocationsPerClient = 1;
+        // options.MaximumReceiveMessageSize = 32 * 1024;
+        // options.StreamBufferCapacity = 10;
+    });
 builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddFluxor(o =>

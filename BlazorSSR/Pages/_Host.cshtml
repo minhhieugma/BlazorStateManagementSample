@@ -28,7 +28,31 @@
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+@* *@
+@* <div id="components-reconnect-modal"> *@
+@*     There was a problem with the connection! *@
+@* </div> *@
 
-<script src="_framework/blazor.server.js"></script>
+<script src="_framework/blazor.server.js" autostart="false"></script>
+<script src="boot.js"></script>
+<script src="connection.js"></script>
+
+<script>
+  // Blazor.start({
+  //   configureSignalR (builder){
+  //     let c = builder.build();
+  //     // c.serverTimeoutInMilliseconds = 2000;
+  //     // c.keepAliveIntervalInMilliseconds = 15000;
+  //
+  //     builder.build = () => c;
+  //   }
+  // });
+</script>
+
+<div id="lost-connection-modal"
+     style="position: fixed; inset: 0px; z-index: 1050; display: none; overflow: hidden; background-color: rgb(255, 255, 255); opacity: 0.8; text-align: center; font-weight: bold; transition: visibility 0s linear 500ms; visibility: visible;">
+    <h5 style="margin-top: 20px;">Loading...</h5>
+</div>
+
 </body>
 </html>
