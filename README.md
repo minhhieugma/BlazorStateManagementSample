@@ -43,7 +43,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Product Name Screen Shot](https://user-images.githubusercontent.com/9654744/232634581-c9c08375-349f-4898-9232-73fa954c67b6.png)
+![Screen Shot](https://user-images.githubusercontent.com/9654744/232638827-b27a3859-df05-4b43-93b6-0c69c4da8d9e.gif)
 
 A template project for whoever wants to know how to control the state of the application. 
 Specifically in Blazor Server Side Rendering where the app easily gets stuck when lost connection to the server.
