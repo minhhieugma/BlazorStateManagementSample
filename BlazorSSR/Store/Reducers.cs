@@ -1,4 +1,5 @@
 using BlazorSSR.Store.StageUseCase;
+using BlazorSSR.Store.WeatherUseCase;
 using Fluxor;
 
 namespace BlazorSSR.Store;
@@ -47,4 +48,16 @@ public static class Reducers
     {
         return new StageState(state.Trails[..^1], action.CountryCode);
     }
+
+    [ReducerMethod]
+    public static WeatherState ReduceFetchDataAction(WeatherState state, FetchDataAction action) =>
+        new(
+            isLoading: true,
+            forecasts: null);
+
+    [ReducerMethod]
+    public static WeatherState ReduceFetchDataResultAction(WeatherState state, FetchDataResultAction action) =>
+        new(
+            isLoading: false,
+            forecasts: action.Forecasts);
 }

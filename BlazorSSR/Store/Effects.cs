@@ -1,3 +1,4 @@
+using System.Text.Json;
 using BlazorSSR.Data;
 using Fluxor;
 
@@ -16,6 +17,9 @@ public class Effects
     public async Task HandleFetchDataAction(FetchDataAction action, IDispatcher dispatcher)
     {
         var forecasts = await _weatherForecastService.GetForecastAsync(DateOnly.FromDateTime(DateTime.Now));
+
+        var a = JsonSerializer.Serialize(forecasts);
+
         dispatcher.Dispatch(new FetchDataResultAction(forecasts));
     }
 }

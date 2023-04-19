@@ -3,7 +3,7 @@ using Fluxor;
 
 namespace BlazorSSR.Store.StageUseCase;
 
-[FeatureState]
+[FeatureState(Name = nameof(StageState))]
 public class StageState
 {
     public Trail[] Trails { get; } = Array.Empty<Trail>();

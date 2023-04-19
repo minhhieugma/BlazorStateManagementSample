@@ -43,23 +43,8 @@
 @if (ShowFooter)
 {
     <div class="mobile-footer">
-        <div class="d-flex">
-            <div class="p-2">
-                <button type="button" class="btn btn-sm btn-light">Button 1</button>
-            </div>
 
-            <div class="p-2">
-                <button type="button" class="btn btn-sm btn-light">Button 1</button>
-            </div>
-
-            <div class="p-2">
-                <button type="button" class="btn btn-sm btn-light">Button 1</button>
-            </div>
-
-            <div class="p-2">
-                <button type="button" class="btn btn-sm btn-light">Button 1</button>
-            </div>
-        </div>
+        @FooterContent
     </div>
 }
 
@@ -89,6 +74,9 @@
     [Parameter]
     public RenderFragment ChildContent { get; set; } = default!;
 
+
+    [Parameter]
+    public RenderFragment FooterContent { get; set; } = default!;
 
     private string BodyAdditionalClasses
     {

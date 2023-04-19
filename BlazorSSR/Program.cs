@@ -38,8 +38,12 @@ builder.Services.AddFluxor(o =>
 
 builder.Services.AddBlazoredLocalStorage();
 // builder.Services.AddScoped<IStringStateStorage, LocalStateStorage>();
-builder.Services.AddScoped<IStringStateStorage, QueryParamsStateStorage>();
+builder.Services.AddScoped<IStringStateStorage, MultiLocalStateStorage>();
+// builder.Services.AddScoped<IStringStateStorage, QueryParamsStateStorage>();
 builder.Services.AddScoped<IStoreHandler, JsonStoreHandler>();
+
+
+builder.Services.AddScoped<WeatherForecastService>();
 
 var app = builder.Build();
 

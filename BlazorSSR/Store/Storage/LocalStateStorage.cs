@@ -3,6 +3,9 @@ using Fluxor.Persist.Storage;
 
 namespace BlazorSSR.Store.Storage;
 
+/// <summary>
+///     A single set of states for a single client (browser)
+/// </summary>
 public sealed class LocalStateStorage : IStringStateStorage
 {
     private ILocalStorageService LocalStorage { get; set; }
