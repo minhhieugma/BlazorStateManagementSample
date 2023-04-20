@@ -10,6 +10,11 @@
 @if (StageState.Value.Trails.Length == 0)
 {
     @* <Login></Login> *@
+
+    if (string.IsNullOrEmpty(SessionId))
+    {
+        <SessionSelector/>
+    }
 }
 else
 {
@@ -29,15 +34,18 @@ else
 
         ActionSubscriber.SubscribeToAction<InitializePersistMiddlewareResultSuccessAction>(this, async result =>
         {
-            if (StageState.Value.Trails.Length == 0)
+            if (string.IsNullOrEmpty(SessionId) == false)
             {
-                Dispatcher.Dispatch(new AddTrailAction
+                if (StageState.Value.Trails.Length == 0)
                 {
-                    Trail =
+                    Dispatcher.Dispatch(new AddTrailAction
                     {
-                        Type = typeof(Login)
-                    }
-                });
+                        Trail =
+                        {
+                            Type = typeof(Login)
+                        }
+                    });
+                }
             }
         });
 

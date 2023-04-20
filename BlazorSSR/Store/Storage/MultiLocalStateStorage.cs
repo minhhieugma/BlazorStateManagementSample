@@ -18,6 +18,7 @@ public sealed class MultiLocalStateStorage : IStringStateStorage
     private string _url;
     private readonly string _urlWithoutParams;
     private readonly Dictionary<string, StringValues> _parsedParams;
+    private readonly SemaphoreSlim _semaphoreSlim = new(1);
 
     public MultiLocalStateStorage(
         ILocalStorageService localStorage,
@@ -39,6 +40,10 @@ public sealed class MultiLocalStateStorage : IStringStateStorage
     {
         try
         {
+            var sessionId = GetSessionId();
+            if (string.IsNullOrEmpty(sessionId))
+                return null;
+
             var localStorageKey = await GetLocalStorageKey(statename);
 
             var str = await _localStorage.GetItemAsStringAsync(localStorageKey);
@@ -55,6 +60,11 @@ public sealed class MultiLocalStateStorage : IStringStateStorage
 
     public async ValueTask StoreStateJsonAsync(string statename, string json)
     {
+        var sessionId = GetSessionId();
+        if (string.IsNullOrEmpty(sessionId))
+            return;
+
+
         var localStorageKey = await GetLocalStorageKey(statename);
 
         await _localStorage.SetItemAsStringAsync(localStorageKey, json);
@@ -64,7 +74,7 @@ public sealed class MultiLocalStateStorage : IStringStateStorage
     {
         session.Keys.TryGetValue(stateName, out var localStorageKey);
         if (!string.IsNullOrEmpty(localStorageKey)) return localStorageKey;
-        
+
         localStorageKey = Guid.NewGuid().ToString();
         session.Keys.Add(stateName, localStorageKey);
 
@@ -73,12 +83,15 @@ public sealed class MultiLocalStateStorage : IStringStateStorage
 
     private async Task<string> GetLocalStorageKey(string stateName)
     {
+        await _semaphoreSlim.WaitAsync();
         var sessionId = CreateNewSessionIdIfNot();
+
         var (sessions, session) = await GetOrCreateSessionAsync(sessionId);
 
         var localStorageKey = GetLocalStorageKeyOrCreate(stateName, session, sessions);
-        
+
         await _localStorage.SetItemAsync("sessions", sessions);
+        _semaphoreSlim.Release();
 
         return localStorageKey;
     }
@@ -118,7 +131,22 @@ public sealed class MultiLocalStateStorage : IStringStateStorage
                 .ToList();
         }
     }
-    
+
+    private string? GetSessionId()
+    {
+        _parsedParams.TryGetValue("session", out var sessionId);
+        if (string.IsNullOrWhiteSpace(sessionId.ToString()))
+        {
+            // sessionId = Guid.NewGuid().ToString();
+            // ReplaceQueryParamValue("session", sessionId!);
+            // _navigationManager.NavigateTo(_url, forceLoad: false, replace: true);
+
+            return null;
+        }
+
+        return sessionId;
+    }
+
     private StringValues CreateNewSessionIdIfNot()
     {
         _parsedParams.TryGetValue("session", out var sessionId);
@@ -139,8 +167,8 @@ public sealed class MultiLocalStateStorage : IStringStateStorage
 
         _url = QueryHelpers.AddQueryString(_urlWithoutParams, _parsedParams);
     }
-    
-    private class Session
+
+    public sealed class Session
     {
         public string SessionId { get; set; }
         public DateTime LastModified { get; set; }

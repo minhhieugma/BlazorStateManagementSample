@@ -46,7 +46,7 @@
     {
         base.OnInitialized();
 
-        ActionSubscriber.SubscribeToAction<ButtonClickedAction>(this, action => { Dispatcher.Dispatch(new BackwardTraverseUntilAction(typeof(Login))); });
+        ActionSubscriber.SubscribeToAction<ButtonClickedAction>(this, action => { Dispatcher.Dispatch(new BackStageAction()); });
     }
 
     protected override async Task OnInitializedAsync()

@@ -1,0 +1,92 @@
+﻿@using Blazored.LocalStorage
+@using BlazorSSR.Store.StageUseCase
+@using BlazorSSR.Store.Storage
+@using Microsoft.AspNetCore.WebUtilities
+@inherits BaseComponent
+@inject ILocalStorageService LocalStorageService
+@inject NavigationManager NavigationManager
+
+@inject IState<StageState> StageState
+
+<MobileLayout
+    LayoutTitle="Session Selector"
+    ShowFooter="true"
+    ShowRightButton="false">
+
+
+    <ChildContent>
+
+        <div class="mb-3">
+            <div class="list-group">
+                @foreach (var session in _sessions)
+                {
+                    <button type="button"
+                            class="list-group-item list-group-item-action @(session.SessionId == _selectedSession?.SessionId ? "active" : "")"
+                            @onclick="@(() => ItemSelected(session))">
+                        @session.SessionId
+                    </button>
+                }
+            </div>
+        </div>
+    </ChildContent>
+    <FooterContent>
+
+        <div class="d-flex">
+            <div class="p-2">
+                <button type="button" class="btn btn-sm btn-light"
+                        @onclick="CreateNewSession">
+                    New Session
+                </button>
+            </div>
+        </div>
+    </FooterContent>
+</MobileLayout>
+
+
+@code
+{
+    private MultiLocalStateStorage.Session[] _sessions = { };
+
+    private MultiLocalStateStorage.Session _selectedSession;
+
+    private void CreateNewSession()
+    {
+        NavigateToSessionId(Guid.NewGuid().ToString());
+    // Dispatcher.Dispatch(new CreateNewSessionAction{});
+    //
+    // if (StageState.Value.Trails.Length == 0)
+    // {
+    //     Dispatcher.Dispatch(new AddTrailAction
+    //     {
+    //         Trail =
+    //         {
+    //             Type = typeof(Login)
+    //         }
+    //     });
+    // }
+    // return Task.CompletedTask;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _sessions = await LocalStorageService.GetItemAsync<MultiLocalStateStorage.Session[]>("sessions");
+            _sessions = _sessions ?? Array.Empty<MultiLocalStateStorage.Session>();
+            StateHasChanged();
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private void ItemSelected(MultiLocalStateStorage.Session session)
+    {
+        _selectedSession = session;
+
+        NavigateToSessionId(session.SessionId);
+    }
+
+    private void NavigateToSessionId(string sessionId)
+    {
+        NavigationManager.NavigateTo(QueryHelpers.AddQueryString(NavigationManager.BaseUri, "session", sessionId), true);
+    }
+}

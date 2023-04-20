@@ -1,3 +1,4 @@
+using BlazorSSR.Pages;
 using BlazorSSR.Store.StageUseCase;
 using BlazorSSR.Store.WeatherUseCase;
 using Fluxor;
@@ -6,6 +7,19 @@ namespace BlazorSSR.Store;
 
 public static class Reducers
 {
+    [ReducerMethod]
+    public static StageState ReduceCreateNewSessionAction(StageState state, CreateNewSessionAction action)
+
+    {
+        return new StageState(new[]
+        {
+            new StageState.Trail
+            {
+                Type = typeof(Login)
+            }
+        }, null);
+    }
+
     [ReducerMethod]
     public static StageState ReduceAddTrailAction(StageState state, AddTrailAction action) =>
         new(state.Trails.Concat(new[] { action.Trail }).ToArray(), state.CountryCode);
