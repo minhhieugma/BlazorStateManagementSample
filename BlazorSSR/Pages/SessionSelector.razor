@@ -1,4 +1,5 @@
-﻿@using Blazored.LocalStorage
+﻿@page "/session-selector"
+@using Blazored.LocalStorage
 @using BlazorSSR.Store.StageUseCase
 @using BlazorSSR.Store.Storage
 @using Microsoft.AspNetCore.WebUtilities
@@ -11,20 +12,25 @@
 <MobileLayout
     LayoutTitle="Session Selector"
     ShowFooter="true"
-    ShowRightButton="false">
+    ShowRightButton="false"
+    ShowLeftButton="false">
 
 
     <ChildContent>
 
         <div class="mb-3">
             <div class="list-group">
-                @foreach (var session in _sessions)
+                @foreach (var session in _sessions.OrderByDescending(p => p.LastModified))
                 {
-                    <button type="button"
-                            class="list-group-item list-group-item-action @(session.SessionId == _selectedSession?.SessionId ? "active" : "")"
-                            @onclick="@(() => ItemSelected(session))">
-                        @session.SessionId
-                    </button>
+                    <li class="list-group-item d-flex justify-content-between align-items-start
+                        list-group-item-action @(session.SessionId == _selectedSession?.SessionId ? "active" : "")"
+                        @onclick="@(() => ItemSelected(session))">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">@session.LastModified</div>
+                            @session.SessionId
+                        </div>
+                        @* <span class="badge bg-primary rounded-pill">14</span> *@
+                    </li>
                 }
             </div>
         </div>
@@ -47,24 +53,11 @@
 {
     private MultiLocalStateStorage.Session[] _sessions = { };
 
-    private MultiLocalStateStorage.Session _selectedSession;
+    private MultiLocalStateStorage.Session? _selectedSession;
 
     private void CreateNewSession()
     {
         NavigateToSessionId(Guid.NewGuid().ToString());
-    // Dispatcher.Dispatch(new CreateNewSessionAction{});
-    //
-    // if (StageState.Value.Trails.Length == 0)
-    // {
-    //     Dispatcher.Dispatch(new AddTrailAction
-    //     {
-    //         Trail =
-    //         {
-    //             Type = typeof(Login)
-    //         }
-    //     });
-    // }
-    // return Task.CompletedTask;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -72,7 +65,14 @@
         if (firstRender)
         {
             _sessions = await LocalStorageService.GetItemAsync<MultiLocalStateStorage.Session[]>("sessions");
-            _sessions = _sessions ?? Array.Empty<MultiLocalStateStorage.Session>();
+            _sessions ??= Array.Empty<MultiLocalStateStorage.Session>();
+
+            if (_sessions.Any() == false)
+            {
+                CreateNewSession();
+                return;
+            }
+
             StateHasChanged();
         }
         await base.OnAfterRenderAsync(firstRender);

@@ -20,8 +20,8 @@ public abstract class BaseComponent : ComponentBase, IAsyncDisposable
         base.OnInitialized();
 
         var parsedParams = QueryHelpers.ParseQuery(new Uri(NavigationManager.Uri).Query);
-        parsedParams.TryGetValue("session", out var sessionId);
-        SessionId = sessionId.ToString();
+        if (parsedParams.TryGetValue("session", out var sessionId))
+            SessionId = sessionId.ToString();
     }
 
     protected override async Task OnInitializedAsync()

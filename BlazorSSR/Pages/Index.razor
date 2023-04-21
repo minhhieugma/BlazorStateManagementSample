@@ -6,23 +6,18 @@
 
 <PageTitle>Stage @StageState.Value.Trails?.LastOrDefault()</PageTitle>
 
-
-@if (StageState.Value.Trails.Length == 0)
+@if (string.IsNullOrEmpty(SessionId))
 {
-    @* <Login></Login> *@
-
-    if (string.IsNullOrEmpty(SessionId))
-    {
-        <SessionSelector/>
-    }
+    <SessionSelector/>
 }
-else
+
+@if (StageState.Value.Trails.Length != 0)
 {
     var currentStage = StageState.Value.Trails.Last();
 
 
-    <DynamicComponent Type="currentStage.Type"
-                      Parameters="currentStage.ComponentParameters"/>
+    <DynamicComponent Type="@currentStage.Type"
+                      Parameters="@currentStage.ComponentParameters"/>
 }
 
 
@@ -34,22 +29,26 @@ else
 
         ActionSubscriber.SubscribeToAction<InitializePersistMiddlewareResultSuccessAction>(this, async result =>
         {
-            if (string.IsNullOrEmpty(SessionId) == false)
-            {
-                if (StageState.Value.Trails.Length == 0)
-                {
-                    Dispatcher.Dispatch(new AddTrailAction
-                    {
-                        Trail =
-                        {
-                            Type = typeof(Login)
-                        }
-                    });
-                }
-            }
+            if (string.IsNullOrEmpty(SessionId)) return;
+
+            AddTheFirstTrailIfEmpty();
         });
 
         StageState.StateChanged += StageStateOnStateChanged;
+    }
+
+    private void AddTheFirstTrailIfEmpty()
+    {
+        if (StageState.Value.Trails.Length == 0)
+        {
+            Dispatcher.Dispatch(new AddTrailAction
+            {
+                Trail =
+                {
+                    Type = typeof(Login)
+                }
+            });
+        }
     }
 
 
