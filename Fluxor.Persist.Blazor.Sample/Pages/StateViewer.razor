@@ -1,0 +1,41 @@
+﻿@using Fluxor.Persist.Storage.Store
+@using System.Text.Json
+@inherits Fluxor.Persist.Storage.BaseComponent
+
+@inject IState<HistoryStackState> StageState
+
+<div class="alert alert-secondary" role="alert">
+    CountryCode: @(StageState.Value.PayloadAs<SimplePayload>().CountryCode)
+</div>
+@if (StageState.Value.Trails.Any())
+{
+    foreach (var trail in StageState.Value.Trails.Reverse())
+    {
+        <div class="alert alert-secondary" role="alert">
+            @JsonSerializer.Serialize(trail)
+
+        </div>
+    }
+}
+
+@code{
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        StageState.StateChanged += StageStateOnStateChanged;
+    }
+
+    private void StageStateOnStateChanged(object? sender, EventArgs e)
+    {
+        StateHasChanged();
+    }
+
+    public override async ValueTask DisposeAsync()
+    {
+        await base.DisposeAsync();
+        StageState.StateChanged -= StageStateOnStateChanged;
+    }
+
+}

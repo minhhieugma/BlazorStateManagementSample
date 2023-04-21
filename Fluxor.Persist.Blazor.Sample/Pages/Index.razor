@@ -1,0 +1,66 @@
+﻿@page "/"
+@using Fluxor.Persist.Storage.Store
+@using Fluxor.Persist.Storage.Store.Action
+@using Fluxor.Persist.Middleware
+@using System.Text.Json
+@inherits Fluxor.Persist.Storage.BaseComponent
+@inject IState<HistoryStackState> StageState
+
+<PageTitle>Stage @StageState.Value.Trails?.LastOrDefault()</PageTitle>
+
+@if (string.IsNullOrEmpty(SessionId))
+{
+    <SessionSelector/>
+}
+
+@if (StageState.Value.Trails.Length != 0)
+{
+    var currentStage = StageState.Value.Trails.Last();
+
+    <DynamicComponent Type="@(currentStage.Type ?? typeof(Login))"
+                      Parameters="@currentStage.ComponentParameters"/>
+}
+
+
+@code {
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        ActionSubscriber.SubscribeToAction<InitializePersistMiddlewareResultSuccessAction>(this, result =>
+        {
+            if (string.IsNullOrEmpty(SessionId)) return;
+
+            AddTheFirstTrailIfEmpty();
+        });
+
+        StageState.StateChanged += StageStateOnStateChanged;
+    }
+
+    private void AddTheFirstTrailIfEmpty()
+    {
+        if (StageState.Value.Trails.Length == 0)
+        {
+            var action = new CreateNewSessionAction
+            {
+                Type = typeof(Login),
+                Payload = JsonSerializer.Serialize(new SimplePayload() { CountryCode = "EN" })
+            };
+            Dispatcher.Dispatch(action);
+        }
+    }
+
+
+    private void StageStateOnStateChanged(object? sender, EventArgs e)
+    {
+        StateHasChanged();
+    }
+
+    public override async ValueTask DisposeAsync()
+    {
+        await base.DisposeAsync();
+        StageState.StateChanged -= StageStateOnStateChanged;
+    }
+
+}

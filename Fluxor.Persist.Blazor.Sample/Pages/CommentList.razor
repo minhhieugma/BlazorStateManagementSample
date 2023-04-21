@@ -1,0 +1,47 @@
+﻿@using Fluxor.Persist.Storage.Store.Action
+@inherits Fluxor.Persist.Storage.BaseComponent
+
+
+<MobileLayout
+    LayoutTitle="Comment List"
+    ShowFooter="true"
+    ShowRightButton="false"
+    LeftButtonTitle="Logout">
+
+    <ChildContent>
+        <button class="btn btn-primary" @onclick="OpenCommentCreationModel">Add Comment</button>
+
+    </ChildContent>
+    <FooterContent>
+
+        <div class="d-flex">
+            <div class="p-2">
+                <button type="button" class="btn btn-sm btn-light"
+                        @onclick="OpenWeatherForecast">
+                    Weather Forcast
+                </button>
+            </div>
+        </div>
+    </FooterContent>
+</MobileLayout>
+
+@code{
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        ActionSubscriber.SubscribeToAction<ButtonClickedAction>(this, action => { Dispatcher.Dispatch(new BackwardTraverseUntilAction(typeof(Login))); });
+    }
+
+    private void OpenCommentCreationModel()
+    {
+        Dispatcher.Dispatch(new AddTrailAction { Trail = { Type = typeof(CommentCreationModal) } });
+    }
+
+    private void OpenWeatherForecast()
+    {
+        Dispatcher.Dispatch(new AddTrailAction { Trail = { Type = typeof(WeatherForecast) } });
+    }
+
+}

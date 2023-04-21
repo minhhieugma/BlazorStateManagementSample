@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Fluxor.Persist.Storage</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Fluxor" Version="5.7.0" />
+        <PackageReference Include="Fluxor.Persist" Version="2.5.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Microsoft.AspNetCore.WebUtilities">
+            <HintPath>..\..\..\..\.dotnet\shared\Microsoft.AspNetCore.App\7.0.4\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+</Project>
